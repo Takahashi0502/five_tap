@@ -6,3 +6,7 @@ ja:
         email: メール
         password: パスワード
         password_confirmation: パスワード（確認）
+      profile:
+        favorite_beer: 好きなビール名
+        twitter_link: twitterのリンク
+        info: 挨拶文

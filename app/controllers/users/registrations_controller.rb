@@ -9,10 +9,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.new(sign_up_params)
+    unless @user.valid?
+      render :new and return
+    end
+    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @profile = @user.build_profile
+    render :new_profile
+  end
+
+  def create_profile
+    @user = User.new(session["devise.regist_data"]["user"])
+    @profile = Profile.new(profile_params)
+    unless @profile.valid?
+      render :new_profile
+    end
+    @user.build_profile(@profile.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+    redirect_to root_path
+  end
 
   # GET /resource/edit
   # def edit
@@ -62,5 +81,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     resource.update_without_current_password(params)
+  end
+
+  def profile_params
+    params.require(:profile).permit(:favorite_beer, :twitter_link, :info)
   end
 end
