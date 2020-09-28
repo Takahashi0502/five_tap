@@ -3,6 +3,11 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
     <%= f.label :favorite_beer %><br />
     <%= f.text_field :favorite_beer, autofocus: true, autocomplete: "favorite_beer" %>
   </div>

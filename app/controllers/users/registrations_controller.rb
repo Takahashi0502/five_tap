@@ -26,8 +26,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     unless @profile.valid?
       render :new_profile
     end
-    @user.build_profile(@profile.attributes)
     @user.save
+    @profile.user_id = @user.id
+    @profile.save
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
     redirect_to root_path
@@ -84,6 +85,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def profile_params
-    params.require(:profile).permit(:favorite_beer, :twitter_link, :info)
+    params.require(:profile).permit(:avatar, :favorite_beer, :twitter_link, :info)
   end
 end
