@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class User::RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -38,7 +38,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -60,9 +60,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  protected
-
   def update_resource(resource, params)
-    resource.update_without_password(params)
+    resource.update_without_current_password(params)
   end
 end
