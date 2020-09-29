@@ -1,4 +1,4 @@
-class BeerController < ApplicationController
+class BeersController < ApplicationController
   before_action :move_to_root, except: [:index, :show]
   before_action :set_beers, only: [:show, :edit, :update, :destroy]
   def index
