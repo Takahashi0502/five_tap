@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'beer#index'
+  resources :beer, only: [:new]
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
