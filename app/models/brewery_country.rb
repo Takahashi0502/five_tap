@@ -1,0 +1,2 @@
+class BreweryCountry < ApplicationRecord
+end
