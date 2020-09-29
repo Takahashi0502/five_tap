@@ -1,5 +1,6 @@
 class BeerController < ApplicationController
-  before_action :set_beers, only: [:show, :edit, :update]
+  before_action :move_to_root, except: [:index, :show]
+  before_action :set_beers, only: [:show, :edit, :update, :destroy]
   def index
     @beers = Beer.all
   end
@@ -29,6 +30,11 @@ class BeerController < ApplicationController
     end
   end
 
+  def destroy
+    @beer.destroy
+    redirect_to root_path
+  end
+
   private
 
   def beer_params
@@ -37,5 +43,11 @@ class BeerController < ApplicationController
 
   def set_beers
     @beer = Beer.find(params[:id])
+  end
+
+  def move_to_root
+    unless user_signed_in?
+      redirect_to root_path
+    end
   end
 end
