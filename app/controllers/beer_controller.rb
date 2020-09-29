@@ -1,5 +1,6 @@
 class BeerController < ApplicationController
   def index
+    @beers = Beer.all
   end
 
   def new
@@ -14,6 +15,10 @@ class BeerController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @beer = Beer.find(params[:id])
   end
 
   private

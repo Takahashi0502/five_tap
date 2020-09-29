@@ -1,0 +1,10 @@
+<h2>ビール詳細</h2>
+
+名称：<%= @beer.name %><br>
+<%= image_tag @beer.beer_image.variant(resize:'300x300') %><br>
+カテゴリー：<%= @beer.category.name %><br>
+スタイル：<%= @beer.style.name %><br>
+コメント：<%= @beer.text %><br>
+商品ページ：<%= @beer.url %><br>
+メーカー：<%= @beer.brewery_name %><br>
+生産国：<%= @beer.brewery_country.name %><br>
