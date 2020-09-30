@@ -1,0 +1,24 @@
+<h1>5tap</h1>
+<h2>お気に入りのビールを登録しよう</h2>
+<%= link_to '登録する', new_beer_path %>
+
+<h2>登録されたビールの一覧</h2>
+<% @beers.each do |beer| %>
+  <p><%= link_to beer.name, beer_path(beer.id) %></p>
+  <p><%= image_tag beer.beer_image %></p>
+<% end %>
+
+<% if user_signed_in? %>
+  <h2>ログインしています</h2>
+  <p>ユーザー名: <%= current_user.nickname %></p>
+
+  <% if current_user.profile.avatar.attached? %>  
+    <p><%= image_tag current_user.profile.avatar.variant(resize:'100x100') %></p>
+  <% end %>
+  <%= link_to 'マイページ', user_path(current_user) %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete%>
+<% else %>
+  <h2>ログインしていません</h2>
+  <%= link_to '新規登録', new_user_registration_path %>
+  <%= link_to 'ログイン', new_user_session_path %>
+<% end %>

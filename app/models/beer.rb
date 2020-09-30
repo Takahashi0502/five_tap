@@ -8,4 +8,8 @@ class Beer < ApplicationRecord
   belongs_to_active_hash :category
   belongs_to_active_hash :style
   belongs_to_active_hash :brewery_country
+
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
 end

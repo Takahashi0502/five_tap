@@ -1,0 +1,45 @@
+<h2>ビール情報登録</h2>
+
+<%= form_with model: @beer do |f| %>
+
+<div class = "beer-field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</div>
+
+<div class = "beer-field">
+  <%= f.label :beer_image %><br>
+  <%= f.file_field :beer_image %>
+</div>
+
+<div class = "beer-field">
+  <%= f.label :category_id %><br>
+  <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+</div>
+
+<div class = "beer-field">
+  <%= f.label :style_id %><br>
+  <%= f.collection_select(:style_id, Style.all, :id, :name, {}, {class:"style-select"}) %>
+</div>
+
+<div class = "beer-field">
+  <%= f.label :url %><br>
+  <%= f.text_field :url %>
+</div>
+
+<div class = "beer-field">
+  <%= f.label :brewery_name %><br>
+  <%= f.text_field :brewery_name %>
+</div>
+
+<div class = "beer-field">
+  <%= f.label :brewery_country_id %><br>
+  <%= f.collection_select(:brewery_country_id, BreweryCountry.all, :id, :name, {}, {class:"brewery-country-select"}) %>
+</div>
+
+<div class = "beer-btn">
+  <%= f.submit "更新する" %>
+</div>
+<% end %>
+
+<%= link_to '戻る', root_path %>
