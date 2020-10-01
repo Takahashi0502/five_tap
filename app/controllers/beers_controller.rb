@@ -20,6 +20,7 @@ class BeersController < ApplicationController
   end
 
   def show
+    @review = ReviewTagRelation.new
   end
 
   def update
