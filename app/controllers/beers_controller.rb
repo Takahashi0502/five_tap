@@ -21,6 +21,7 @@ class BeersController < ApplicationController
 
   def show
     @review = ReviewTagRelation.new
+    @reviews = Review.all
   end
 
   def update

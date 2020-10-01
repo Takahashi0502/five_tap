@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
   def create
     @review = ReviewTagRelation.new(review_params)
     @review.user_id = current_user.id
-    binding.pry
     if @review.valid?
       @review.save
       return redirect_to beer_path(@review.beer_id)
