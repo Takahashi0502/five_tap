@@ -35,4 +35,6 @@
   <%= f.submit 'コメントする' %>
 <% end %>
 
+<p><%= link_to 'ツイートする', "https://twitter.com/share?text=#{ @beer.name }を飲みました！&url=#{ request.url }" %></p>
+
 <%= link_to 'ビール詳細に戻る', beer_path(@beer) %>
