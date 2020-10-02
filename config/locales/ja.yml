@@ -23,6 +23,8 @@ ja:
         images: 画像
       tag:
         name: タグ
+      comment:
+        content: コメント
   activemodel:
     attributes:
       review_tag_relation:

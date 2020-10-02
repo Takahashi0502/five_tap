@@ -26,13 +26,21 @@
       <%= comment.user.nickname %>
       <%= comment.content %>
     </p>
+    <% if user_signed_in? %>
+      <% if comment.gooding_by?(current_user) %>
+        <p><span>いいね済み</span><%= link_to comment.goods.count, comment_good_path(comment.id), method: :delete %></p>
+      <% else %>
+        <p><span>いいね</span><%= link_to comment.goods.count, comment_good_path(comment.id), method: :post %></p>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
-<%= form_with model:@comment, url: review_comments_path(@review) do |f| %>
-  <%= f.label :content %>する
-  <%= f.text_field :content %>
-
-  <%= f.submit 'コメントする' %>
+<% if user_signed_in? %>
+  <%= form_with model:@comment, url: review_comments_path(@review) do |f| %>
+    <%= f.label :content %>する
+    <%= f.text_field :content %>
+    <%= f.submit 'コメントする' %>
+  <% end %>
 <% end %>
 
 <p><%= link_to 'ツイートする', "https://twitter.com/share?text=#{ @beer.name }を飲みました！&url=#{ request.url }" %></p>
