@@ -11,6 +11,11 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def show
+    @review = Review.find(params[:id])
+    @beer = Beer.find(@review.beer_id)
+  end
+
   private
 
   def review_params

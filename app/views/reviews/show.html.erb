@@ -1,0 +1,24 @@
+<h2><%= link_to @beer.name, beer_path(@beer) %></h2>
+<div>
+  <h3><%= @review.user.nickname %></h3>
+  コメント：<%= @review.content %><br>
+  <% if @review.images.attached? %>
+    <% @review.images.each do |image| %>
+      <%= image_tag image.variant(resize:'150x150') %>
+    <% end %><br>
+  <% end %>
+  タグ：
+  <% @review.tags.each do |tag| %>
+    <%= tag.name %><br>
+  <% end %>
+</div>
+
+<% if user_signed_in? %>
+  <% if @review.liked_by?(current_user) %>
+    <p><span>いいね済み</span><%= link_to @review.likes.count, review_like_path(@review.id), method: :delete %></p>
+  <% else %>
+    <p><span>いいね</span><%= link_to @review.likes.count, review_like_path(@review.id), method: :post %></p>
+  <% end %>
+<% end %>
+
+<%= link_to 'ビール詳細に戻る', beer_path(@beer) %>

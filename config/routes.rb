@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'beers#index'
   resources :beers do
     resource :favorite, only: [:create, :destroy]
-    resources :reviews, only: [:index, :new, :create]
+    resources :reviews, only: [:create]
   end
   devise_for :users, controllers: {
     registrations: 'users/registrations'
@@ -12,4 +12,7 @@ Rails.application.routes.draw do
     post 'profiles', to: 'users/registrations#create_profile'
   end
   resources :users, only: :show
+  resources :reviews, only: [:show] do
+    resource :like, only: [:create, :destroy]
+  end
 end
