@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
-    binding.pry
     if @comment.valid?
       @comment.save
       redirect_to review_path(params[:review_id])
