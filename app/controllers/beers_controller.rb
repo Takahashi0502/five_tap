@@ -21,7 +21,7 @@ class BeersController < ApplicationController
 
   def show
     @review = ReviewTagRelation.new
-    @reviews = Review.all
+    @reviews = Review.where(beer_id: @beer.id)
   end
 
   def update
