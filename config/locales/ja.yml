@@ -18,3 +18,14 @@ ja:
         url: 商品ページのURL
         brewery_name: メーカー名
         brewery_country_id: 生産国
+      review:
+        content: 本文
+        images: 画像
+      tag:
+        name: タグ
+  activemodel:
+    attributes:
+      review_tag_relation:
+        content: 本文
+        images: 画像
+        name: タグ

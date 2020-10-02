@@ -19,6 +19,51 @@
   <% end %>
 <% end %>
 
+<div>
+  <h4>コメント一覧</h4>
+  <div>
+    <% @reviews.each do |review| %>
+      <P><%= review.user.nickname %></p>
+      コメント：<%= review.content %><br>
+      <% if review.images.attached? %>
+        <% review.images.each do |image| %>
+          <%= image_tag image.variant(resize:'150x150') %>
+        <% end %><br>
+      <% end %>
+      タグ：
+      <% review.tags.each do |tag| %>
+        <%= tag.name %><br>
+      <% end %>
+      <%= link_to '詳細をみる', review_path(review.id) %>
+
+    <% end %>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+  <h4>コメントする</h4>
+  <%= form_with model:@review, url: beer_reviews_path(@beer) do |f| %>
+    <div class = "review-field">
+      <%= f.label :content %><br>
+      <%= f.text_area :content %>
+    </div>
+
+    <div class = "review-field">
+      <%= f.label :images %><br>
+      <%= f.file_field :images %>
+    </div>
+
+      <div class = "review-field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class = "review-btn">
+      <%= f.submit "投稿する" %>
+    </div>
+  <% end %>
+<% end %>
+
 <% if user_signed_in? %>
   <%= link_to '情報を編集する', edit_beer_path %>
   <%= link_to '削除する', beer_path, method: :delete %>
