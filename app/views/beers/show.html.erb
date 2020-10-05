@@ -23,7 +23,7 @@
   <h4>レビュー一覧</h4>
   <div>
     <% @reviews.each do |review| %>
-      <P><%= review.user.nickname %></p>
+      <P><%= link_to review.user.nickname, user_path(review.user) %></p>
       <%= review.content %><br>
       <% if review.images.attached? %>
         <% review.images.each do |image| %>

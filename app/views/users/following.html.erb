@@ -1,0 +1,6 @@
+<h2>フォロー一覧</h3>
+<% @users.each do |u| %>
+   <p><%= link_to u.nickname, user_path(u) %></p>
+<% end %>
+
+<%= link_to "#{@user.nickname}に戻る", user_path(@user) %>

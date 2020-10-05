@@ -1,6 +1,15 @@
 <h1><%= @user.nickname %>のマイページ</h1>
 <div>
   <p>ユーザー名:<%= @user.nickname %></p>
+  <% if current_user != @user %>
+    <% if @user.followed_by?(current_user) %>
+      <%= link_to 'フォロー済み', user_relationship_path(@user.id), method: :delete %>
+    <% else %>
+      <%= link_to 'フォローする', user_relationships_path(@user.id), method: :post %>
+    <% end %>
+  <% end %>
+  <%= link_to "フォロー", following_user_path(@user.id) %>
+  <%= link_to "フォロワー", follower_user_path(@user.id) %>
   <% if @user.profile.avatar.attached? %>
     <% image_tag @user.profile.avatar.variant(resize:'100x100')%>
   <% end %>
@@ -16,5 +25,7 @@
   <% end %>
 </div>
 
-<%= link_to 'ユーザー編集', edit_user_registration_path %>
+<% if current_user == @user %>
+  <%= link_to 'ユーザー編集', edit_user_registration_path %>
+<% end %>
 <%= link_to 'トップへ戻る', root_path %>

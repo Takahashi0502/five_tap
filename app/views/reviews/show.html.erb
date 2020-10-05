@@ -1,6 +1,6 @@
 <h2><%= link_to @beer.name, beer_path(@beer) %></h2>
 <div>
-  <h3><%= @review.user.nickname %></h3>
+  <h3><%= link_to @review.user.nickname, user_path(@review.user) %></h3>
   コメント：<%= @review.content %><br>
   <% if @review.images.attached? %>
     <% @review.images.each do |image| %>
@@ -23,7 +23,7 @@
 <div>
   <% @comments.each do |comment| %>
     <p>
-      <%= comment.user.nickname %>
+      <%= link_to comment.user.nickname, user_path(comment.user) %>
       <%= comment.content %>
     </p>
     <% if user_signed_in? %>
