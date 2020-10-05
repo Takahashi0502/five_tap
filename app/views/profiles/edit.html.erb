@@ -1,0 +1,29 @@
+<h2>プロフィール編集</h2>
+<%= form_with model: @profile do |f| %>
+
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
+    <%= f.label :favorite_beer %><br />
+    <%= f.text_field :favorite_beer, autofocus: true, autocomplete: "favorite_beer" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :twitter_link %><br />
+    <%= f.text_field :twitter_link, autocomplete: "twitter_link" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :info %><br />
+    <%= f.text_area :info %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新する" %>
+  </div>
+<% end %>
+
+<%= link_to "戻る", user_path(@profile.user) %>

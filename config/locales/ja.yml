@@ -10,6 +10,7 @@ ja:
         favorite_beer: 好きなビール名
         twitter_link: twitterのリンク
         info: 挨拶文
+        avatar: プロフィール画像
       beer:
         name: ビール名
         beer_image: 画像
