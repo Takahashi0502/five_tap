@@ -13,9 +13,9 @@ class User < ApplicationRecord
   has_many :goods
   has_many :good_comments, through: :goods
   
-  has_many :active_relationships, class_name: "Relationship"
+  has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
   has_many :followings, through: :active_relationships, source: :follower
-  has_many :passive_relationships, class_name: "Relationship"
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
   has_many :followers, through: :passive_relationships, source: :following
 
   validates :nickname, presence: true
@@ -32,5 +32,10 @@ class User < ApplicationRecord
     result = update_attributes(params, *options)
     clean_up_passwords
     result
+  end
+
+  # フォローしようとするユーザーがフォロー済みかどうかを確認
+  def followed_by?
+    passive_relationships.find_by(following_id: user.id).present?
   end
 end
