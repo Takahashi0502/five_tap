@@ -8,6 +8,8 @@
       <%= link_to 'フォローする', user_relationships_path(@user.id), method: :post %>
     <% end %>
   <% end %>
+  <%= link_to "フォロー", following_user_path(@user.id) %>
+  <%= link_to "フォロワー", follower_user_path(@user.id) %>
   <% if @user.profile.avatar.attached? %>
     <% image_tag @user.profile.avatar.variant(resize:'100x100')%>
   <% end %>
