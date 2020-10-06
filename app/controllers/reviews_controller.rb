@@ -15,9 +15,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
-    @beer = Beer.find(@review.beer_id)
     @comment = Comment.new
-    @comments = Comment.where(review_id: params[:id])
   end
 
   private

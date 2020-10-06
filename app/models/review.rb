@@ -5,6 +5,7 @@ class Review < ApplicationRecord
   has_many :tags, through: :review_tags
   has_many :likes
   has_many :users, through: :likes
+  has_many :comments
   has_many_attached :images
 
   def liked_by?(user)
