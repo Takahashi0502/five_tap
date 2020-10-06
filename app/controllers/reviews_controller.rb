@@ -7,7 +7,9 @@ class ReviewsController < ApplicationController
       @review.save
       return redirect_to beer_path(@review.beer_id)
     else
-      render 'beer/show'
+      @beer = Beer.find(params[:beer_id])
+      @reviews = Review.where(beer_id: @beer.id)
+      render 'beers/show'
     end
   end
 
