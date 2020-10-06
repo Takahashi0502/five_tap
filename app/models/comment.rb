@@ -4,6 +4,8 @@ class Comment < ApplicationRecord
   has_many :users, through: :goods
   belongs_to :review
 
+  validates :content, presence: true
+
   def gooding_by?(user)
     goods.where(user_id: user.id).exists?
   end

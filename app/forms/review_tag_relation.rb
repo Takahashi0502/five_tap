@@ -1,6 +1,7 @@
 class ReviewTagRelation
   include ActiveModel::Model
   attr_accessor :content, :images, :name, :beer_id, :user_id
+  validates :content, presence: true
 
   def save
     review = Review.create(content: content, images: images, beer_id: beer_id, user_id: user_id)

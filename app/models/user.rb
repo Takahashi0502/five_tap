@@ -6,19 +6,19 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :beers, through: :favorites
   has_one :profile, dependent: :destroy
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :likes
   has_many :like_reviews, through: :likes
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :goods
   has_many :good_comments, through: :goods
-  
+
   has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
   has_many :followings, through: :active_relationships, source: :follower
   has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
   has_many :followers, through: :passive_relationships, source: :following
 
-  validates :nickname, presence: true
+  validates :nickname, presence: true, uniqueness: true
 
   # userのパスワードを変更させるための処理を記述。
   def update_without_current_password(params, *options)

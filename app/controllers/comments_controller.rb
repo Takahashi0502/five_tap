@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
       @comment.save
       redirect_to review_path(params[:review_id])
     else
+      @review = Review.find(params[:review_id])
       render 'reviews/show'
     end
   end

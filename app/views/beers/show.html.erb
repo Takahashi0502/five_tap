@@ -42,7 +42,8 @@
 
 <% if user_signed_in? %>
   <h4>レビューを投稿する</h4>
-  <%= form_with model:@review, url: beer_reviews_path(@beer) do |f| %>
+  <%= form_with model:@review, url: beer_reviews_path(@beer), local: true do |f| %>
+  <%= render "shared/error_messages", model: f.object %>
     <div class = "review-field">
       <%= f.label :content %><br>
       <%= f.text_area :content %>
@@ -65,7 +66,7 @@
 <% end %>
 
 <% if user_signed_in? %>
-  <%= link_to '情報を編集する', edit_beer_path %>
-  <%= link_to '削除する', beer_path, method: :delete %>
+  <%= link_to '情報を編集する', edit_beer_path(@beer) %>
+  <%= link_to '削除する', beer_path(@beer), method: :delete %>
 <% end %>
 <%= link_to 'トップに戻る', root_path %>
