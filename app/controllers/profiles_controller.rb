@@ -6,9 +6,11 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find(params[:id])
-    binding.pry
-    @profile.update(profile_edit_params)
-    redirect_to user_path(@profile.user_id)
+    if @profile.update(profile_edit_params)
+      redirect_to user_path(@profile.user_id)
+    else
+      render :edit
+    end
   end
 
   private
