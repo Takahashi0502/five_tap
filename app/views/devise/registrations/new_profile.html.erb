@@ -1,6 +1,6 @@
 <h2>プロフィール登録</h2>
-<%= form_with model: @profile do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_with model: @profile, local: true do |f| %>
+  <%= render "devise/shared/error_messages", resource: @profile %>
 
   <div class="field">
     <%= f.label :avatar %><br />

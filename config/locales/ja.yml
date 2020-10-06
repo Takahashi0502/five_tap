@@ -8,7 +8,7 @@ ja:
         password_confirmation: パスワード（確認）
       profile:
         favorite_beer: 好きなビール名
-        twitter_link: twitterのリンク
+        twitter_link: Twitterリンク
         info: 挨拶文
         avatar: プロフィール画像
       beer:
