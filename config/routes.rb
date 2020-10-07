@@ -25,4 +25,5 @@ Rails.application.routes.draw do
     resource :good, only: [:create, :destroy]
   end
   resources :search, only: [:index]
+  get 'detail_search', to: 'search#detail_search'
 end
