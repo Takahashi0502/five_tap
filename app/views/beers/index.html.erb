@@ -1,4 +1,3 @@
-<h1>5tap</h1>
 <%= render "shared/search_form" %>
 <h3>お気に入りのビールを登録しよう</h3>
 <%= link_to '登録する', new_beer_path %>
@@ -6,19 +5,4 @@
 <h3>登録されたビールの一覧</h3>
 <% @beers.each do |beer| %>
   <p><%= link_to beer.name, beer_path(beer.id) %></p>
-<% end %>
-
-<% if user_signed_in? %>
-  <h3>ログインしています</h3>
-  <p>ユーザー名: <%= current_user.nickname %></p>
-
-  <% if current_user.profile.avatar.attached? %>  
-    <p><%= image_tag current_user.profile.avatar.variant(resize:'100x100') %></p>
-  <% end %>
-  <%= link_to 'マイページ', user_path(current_user) %>
-  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete%>
-<% else %>
-  <h3>ログインしていません</h3>
-  <%= link_to '新規登録', new_user_registration_path %>
-  <%= link_to 'ログイン', new_user_session_path %>
 <% end %>

@@ -1,29 +1,11 @@
 <h2>プロフィール登録</h2>
+
 <%= form_with model: @profile, local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: @profile %>
-
-  <div class="field">
-    <%= f.label :avatar %><br />
-    <%= f.file_field :avatar %>
-  </div>
-
-  <div class="field">
-    <%= f.label :favorite_beer %><br />
-    <%= f.text_field :favorite_beer, autofocus: true, autocomplete: "favorite_beer" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :twitter_link %><br />
-    <%= f.text_field :twitter_link, autocomplete: "twitter_link" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :info %><br />
-    <%= f.text_area :info %>
-  </div>
+  <%= render "shared/profile_form", f: f %>
 
   <div class="actions">
-    <%= f.submit "新規登録" %>
+  <%= f.submit "新規登録" %>
   </div>
 <% end %>
 

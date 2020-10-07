@@ -1,0 +1,22 @@
+<h4>レビューを投稿する</h4>
+<%= form_with model: review, url: beer_reviews_path(beer), local: true do |f| %>
+<%= render "shared/error_messages", model: f.object %>
+  <div class = "review-field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class = "review-field">
+    <%= f.label :images %><br>
+    <%= f.file_field :images %>
+  </div>
+
+    <div class = "review-field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class = "review-btn">
+    <%= f.submit "投稿する" %>
+  </div>
+<% end %>
