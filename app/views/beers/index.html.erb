@@ -6,7 +6,6 @@
 <h3>登録されたビールの一覧</h3>
 <% @beers.each do |beer| %>
   <p><%= link_to beer.name, beer_path(beer.id) %></p>
-  <p><%= image_tag beer.beer_image %></p>
 <% end %>
 
 <% if user_signed_in? %>

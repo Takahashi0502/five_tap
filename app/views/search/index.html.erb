@@ -4,7 +4,6 @@
   <%= "#{@beers.count}件表示" %>
   <% @beers.each do |beer| %>
     <p><%= link_to beer.name, beer_path(beer.id) %></p>
-    <p><%= image_tag beer.beer_image %></p>
   <% end %>
 <% else %>
   <%= "「#{@search}」に一致するビールはありません" %>
