@@ -1,5 +1,24 @@
 <h2>検索結果</h2>
 
+<p>検索条件</p>
+<% unless params[:q][:name_cont].empty? %>
+  ビール名：
+  <%= params[:q][:name_cont] %>
+<% end %>
+<% unless params[:q][:category_id_eq].empty? %>
+  醸造方法：
+  <%= Category.find(params[:q][:category_id_eq]).name %>
+<% end %>
+<% unless params[:q][:style_id_eq].empty? %>
+  スタイル：
+  <%= Style.find(params[:q][:style_id_eq]).name %>
+<% end %>
+<% unless params[:q][:text_cont].empty? %>
+  その他キーワード：
+  <%= params[:q][:text_cont] %>
+<% end %>
+
+<h2>一致する検索結果</h2>
 <% @results.each do |beer| %>
   <%= link_to beer.name, beer_path(beer.id) %>
 <% end %>
