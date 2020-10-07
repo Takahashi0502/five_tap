@@ -18,6 +18,6 @@ class Beer < ApplicationRecord
 
   def self.search(search)
     return Beer.all unless search
-    Beer.where(['name LIKE(?)', "%#{search}%"])
+    Beer.where(['name LIKE(?) OR text LIKE(?)', "%#{search}%", "%#{search}%"])
   end
 end
