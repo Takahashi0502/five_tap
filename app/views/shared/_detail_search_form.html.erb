@@ -1,0 +1,19 @@
+<h3>詳細検索</h3>
+<%= search_form_for @b, url: detail_search_path do |f| %>
+  <%= f.label :name_cont, 'ビール名' %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.label :category_id_eq, '醸造方法' %>
+  <%= f.collection_select :category_id_eq, @categories, :id, :name, :include_blank => '指定なし' %>
+
+  <%= f.label :style_id_eq, 'スタイル' %>
+  <%= f.collection_select :style_id_eq, @styles, :id, :name, :include_blank => '指定なし' %>
+
+  <%= f.label :reviews_tags_name_cont, 'タグ' %>
+  <%= f.search_field :reviews_tags_name_cont %>
+
+  <%= f.label :text_cont, 'その他キーワード' %>
+  <%= f.search_field :text_cont %>
+
+  <%= f.submit '検索する' %>
+<% end %>

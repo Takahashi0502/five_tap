@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   resources :comments, only: [:show] do
     resource :good, only: [:create, :destroy]
   end
+  resources :search, only: [:index]
+  get 'detail_search', to: 'search#detail_search'
 end
