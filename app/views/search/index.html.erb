@@ -1,7 +1,11 @@
-<h2><%= "「#{@search}」の検索結果" %></h2>
-
-<% if @beers.present? %>
-  <%= "#{@beers.count}件表示" %>
+<h2><%= "#{@search} の検索結果" %></h2>
+<% if @search == "" %>
+  <%= "1-#{@beers.count}件表示" %>
+  <% @beers.each do |beer| %>
+    <p><%= link_to beer.name, beer_path(beer.id) %></p>
+  <% end %>
+<% elsif @beers.present? %>
+  <%= "1-#{@beers.count}件表示" %>
   <% @beers.each do |beer| %>
     <p><%= link_to beer.name, beer_path(beer.id) %></p>
   <% end %>
