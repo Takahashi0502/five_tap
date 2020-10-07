@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   resources :comments, only: [:show] do
     resource :good, only: [:create, :destroy]
   end
+  resources :search, only: [:index]
 end
