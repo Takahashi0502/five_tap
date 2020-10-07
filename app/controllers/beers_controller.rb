@@ -26,7 +26,7 @@ class BeersController < ApplicationController
 
   def update
     if @beer.update(beer_params)
-      redirect_to root_path
+      redirect_to beer_path
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class BeersController < ApplicationController
   private
 
   def beer_params
-    params.require(:beer).permit(:name, :beer_image, :category_id, :style_id, :url, :brewery_name, :brewery_country_id)
+    params.require(:beer).permit(:name, :beer_image, :category_id, :style_id, :url, :brewery_name, :brewery_country_id, :text)
   end
 
   def set_beers
