@@ -13,6 +13,10 @@
   スタイル：
   <%= Style.find(params[:q][:style_id_eq]).name %>
 <% end %>
+<% unless params[:q][:reviews_tags_name_cont].empty? %>
+  タグ：
+  <%= params[:q][:reviews_tags_name_cont] %>
+<% end %>
 <% unless params[:q][:text_cont].empty? %>
   その他キーワード：
   <%= params[:q][:text_cont] %>
