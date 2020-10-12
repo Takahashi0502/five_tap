@@ -1,15 +1,27 @@
-<div>
-  <%= link_to '5tap', root_path %>
-</div>
-<div>
-  <% if user_signed_in? %>
-    <%= link_to current_user.nickname, user_path(current_user) %>
-    <% if current_user.profile.avatar.attached? %>  
-      <p><%= image_tag current_user.profile.avatar.variant(resize:'100x100') %></p>
-    <% end %>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete%>
-  <% else %>
-    <%= link_to '新規登録', new_user_registration_path %>
-    <%= link_to 'ログイン', new_user_session_path %>
-  <% end %>
-</div>
+<header>
+  <div class="header-left">
+    <div class="header-logo">
+      <%= link_to root_path do %>
+        <i class="fas fa-beer"></i>5tap
+      <% end %>
+    </div>
+  </div>
+  <div class="header-right">
+    <ul class="user-lists">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to current_user.nickname, user_path(current_user) %>
+          <% if current_user.profile.avatar.attached? %>
+            <%= image_tag current_user.profile.avatar.variant(resize:'35x35') %>
+          <% else %>
+            <%= image_tag "default_user.png", size: "35x35"%>
+          <% end %>
+        </li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+      <% else %>
+        <li><%= link_to '新規登録', new_user_registration_path %></li>
+        <li><%= link_to 'ログイン', new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>
