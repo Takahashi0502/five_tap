@@ -9,5 +9,26 @@
     .top-text{
     }
   }
-  
+}
+
+.contents-wrapper{
+  margin: 50px 100px;
+
+  h3{
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  .review-text{
+    margin-bottom: 10px;
+    border: 1px solid;
+    padding: 10px;
+
+    p{
+      font-size: 20px;
+      margin: 5px 0;
+    }
+    span{
+      margin-left: 10px;
+    }
+  }
 }
