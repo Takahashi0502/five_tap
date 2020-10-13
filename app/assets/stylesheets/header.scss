@@ -1,0 +1,29 @@
+.header-wrapper{
+  background-color: limegreen;
+  display: flex;
+  align-items: center;
+  height: 45px;
+
+  .header-left{
+    width: 50%;
+    
+  }
+
+  .header-right{
+    margin-left: auto;
+
+    .user-nav{
+      list-style: none;
+      display: flex;
+      align-items: center;
+
+      li{
+        margin-right: 10px;
+
+        .user-icon{
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
