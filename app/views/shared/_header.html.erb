@@ -1,4 +1,4 @@
-<header>
+<header class="header-wrapper">
   <div class="header-left">
     <div class="header-logo">
       <%= link_to root_path do %>
@@ -7,17 +7,19 @@
     </div>
   </div>
   <div class="header-right">
-    <ul class="user-lists">
+    <ul class="user-nav">
+      <li><%= render "shared/search_form" %></li>
       <% if user_signed_in? %>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
         <li>
-          <%= link_to current_user.nickname, user_path(current_user) %>
-          <% if current_user.profile.avatar.attached? %>
-            <%= image_tag current_user.profile.avatar.variant(resize:'35x35') %>
-          <% else %>
-            <%= image_tag "default_user.png", size: "35x35"%>
+          <%= link_to user_path(current_user) do %>
+            <% if current_user.profile.avatar.attached? %>
+              <%= image_tag current_user.profile.avatar.variant(resize:'40x40'), {class: "user-icon"} %>
+            <% else %>
+              <%= image_tag "beer2", {class: "user-icon", size: "40x40"}%>
+            <% end %>
           <% end %>
         </li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
       <% else %>
         <li><%= link_to '新規登録', new_user_registration_path %></li>
         <li><%= link_to 'ログイン', new_user_session_path %></li>
