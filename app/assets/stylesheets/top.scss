@@ -4,22 +4,37 @@
   background-size: cover;
   .top-container{
     margin: 0 100px;
-    .container-text{
-      height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .main{
+      margin-top: 150px;
+      height: 250px;
+      width: 500px;
+      background-color: rgba(255, 255, 224, 0.2);
+      .main-text{
+        text-align: center;
+        color: white;
+        padding: 20px;
+        h3{
+          font-size: 30px;
+        }
+        p{
+          font-size: 20px;
+          margin: 20px;
+        }
+      }
     }
     .top-search{
       display: flex;
-      justify-content: center;
       align-items: center;
       height: 80px;
-      .search-form{
-
-        input{
-          height: 40px;
-        }
-        .form-field{
-          width: 350px;
-        }
+      input{
+        height: 40px;
+      }
+      .form-field{
+        width: 350px;
       }
     }
   }
