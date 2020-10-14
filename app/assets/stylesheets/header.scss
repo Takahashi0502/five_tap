@@ -1,15 +1,18 @@
 .header-wrapper{
   display: flex;
   align-items: center;
-  height: 45px;
+  height: 80px;
+  border-bottom: lightblue 1px solid;
+  margin-bottom: 10px;
 
   .header-left{
     width: 50%;
-
+    margin-left: 100px;
   }
 
   .header-right{
     margin-left: auto;
+    margin-right: 100px;
 
     .user-nav{
       list-style: none;
