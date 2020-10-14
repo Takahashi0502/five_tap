@@ -1,17 +1,31 @@
 .top-wrapper{
-  height: 550px;
-
+  height: 600px;
+  background-image: image-url("top_beer");
+  background-size: cover;
   .top-container{
-    height: 100%;
-    background-image: image-url("top_beer");
-    background-size: cover;
+    margin: 0 100px;
+    .container-text{
+      height: 400px;
+    }
+    .top-search{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      .search-form{
 
-    .top-text{
+        input{
+          height: 40px;
+        }
+        .form-field{
+          width: 350px;
+        }
+      }
     }
   }
 }
 
-.contents-wrapper{
+.container{
   margin: 50px 100px;
 
   h3{

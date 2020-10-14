@@ -1,7 +1,14 @@
 <div class="top-wrapper">
+  <%= render "shared/top_header" %>
   <div class="top-container">
-    <h3>お気に入りのビールを登録しよう</h3>
-    <p><%= link_to '登録する', new_beer_path %></p>
+    <div class="container-text">
+    </div>
+    <div class="top-search">
+      <%= form_with url: search_index_path, class: "search-form", local: true, method: :get do |f| %>
+        <%= f.text_field :search, placeholder: "ビール名・キーワードで検索", class: "form-field" %>
+        <%= f.submit "検索" %>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -16,5 +23,12 @@
         </div>
       <% end %>
     </div>
+  </div>
+</div>
+
+<div class="registration-wrapper">
+  <div class="container">
+    <h3>お気に入りのビールを登録しよう</h3>
+    <p><%= link_to '登録する', new_beer_path %></p>
   </div>
 </div>
