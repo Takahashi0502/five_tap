@@ -1,0 +1,28 @@
+<div class="top-header-wrapper">
+  <div class="header-left">
+    <div class="header-logo">
+      <%= link_to root_path do %>
+        <%= image_tag "5tap-logo-white" , {class: "header-icon", size: "140x60"} %>
+      <% end %>
+    </div>
+  </div>
+  <div class="header-right">
+    <ul class="user-nav">
+      <% if user_signed_in? %>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+        <li>
+          <%= link_to user_path(current_user) do %>
+            <% if current_user.profile.avatar.attached? %>
+              <%= image_tag current_user.profile.avatar.variant(resize:'40x40'), {class: "user-icon"} %>
+            <% else %>
+              <%= image_tag "default_user", {class: "user-icon", size: "40x40"}%>
+            <% end %>
+          <% end %>
+        </li>
+      <% else %>
+        <li><%= link_to '新規登録', new_user_registration_path %></li>
+        <li><%= link_to 'ログイン', new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
