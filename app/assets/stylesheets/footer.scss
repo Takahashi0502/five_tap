@@ -1,0 +1,31 @@
+.footer-wrapper{
+  height: 180px;
+  width: 100%;
+  background-color: rgba(250, 250, 210, 0.8);
+  .footer-container{
+    padding: 20px 100px 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .footer-top{
+      width: 100%;
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: lightgray solid 0.5px;
+      a{
+        text-decoration: none;
+        color: gray;
+      }
+    }
+    .footer-bottom{
+      padding: 20px 0;
+      text-align: center;
+      opacity: 0.5;
+      p{
+        margin-top: 15px;
+        font-size: xx-small;
+      }
+    }
+  }
+}
