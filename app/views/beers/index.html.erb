@@ -1,13 +1,26 @@
 <div class="top-wrapper">
+  <%= render "shared/top_header" %>
   <div class="top-container">
-    <h3>お気に入りのビールを登録しよう</h3>
-    <p><%= link_to '登録する', new_beer_path %></p>
+    <div class="main">
+       <div class="main-text">
+        <p>クラフトビールの感想を共有するSNS</p>
+        <h3>【5tap】</h3>
+        <p>自分の好きなビールを探して<br>ビールの好みを発見</p>
+        <p>ビールを飲んだら【ビア活】を登録！</p>
+       </div>
+    </div>
+    <div class="top-search">
+      <%= form_with url: search_index_path, class: "search-form", local: true, method: :get do |f| %>
+        <%= f.text_field :search, placeholder: "ビール・キーワードで検索", class: "form-field" %>
+        <%= f.submit "検索" %>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <div class="contents-wrapper">
   <div class="container">
-    <h3>最新レビュー</h3>
+    <h3>最新ビア活一覧</h3>
     <div class="review-field">
       <% @reviews.each do |review| %>
         <div class="review-text">
@@ -16,5 +29,12 @@
         </div>
       <% end %>
     </div>
+  </div>
+</div>
+
+<div class="registration-wrapper">
+  <div class="container">
+    <h3>お気に入りのビールを登録しよう</h3>
+    <p><%= link_to '登録する', new_beer_path %></p>
   </div>
 </div>

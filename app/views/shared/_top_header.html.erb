@@ -1,14 +1,13 @@
-<header class="header-wrapper">
+<div class="top-header-wrapper">
   <div class="header-left">
     <div class="header-logo">
       <%= link_to root_path do %>
-        <%= image_tag "5tap-logo-black" , {class: "header-icon", size: "140x60"} %>
+        <%= image_tag "5tap-logo-white" , {class: "header-icon", size: "140x60"} %>
       <% end %>
     </div>
   </div>
   <div class="header-right">
     <ul class="user-nav">
-      <li><%= render "shared/search_form" %></li>
       <% if user_signed_in? %>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
         <li>
@@ -26,4 +25,4 @@
       <% end %>
     </ul>
   </div>
-</header>
+</div>
