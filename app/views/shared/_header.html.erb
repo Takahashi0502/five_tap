@@ -16,7 +16,7 @@
             <% if current_user.profile.avatar.attached? %>
               <%= image_tag current_user.profile.avatar.variant(resize:'40x40'), {class: "user-icon"} %>
             <% else %>
-              <%= image_tag "beer2", {class: "user-icon", size: "40x40"}%>
+              <%= image_tag "default_user", {class: "user-icon", size: "40x40"}%>
             <% end %>
           <% end %>
         </li>
