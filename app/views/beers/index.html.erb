@@ -21,14 +21,17 @@
 <div class="contents-wrapper">
   <div class="container">
     <h3>最新ビア活一覧</h3>
-    <div class="review-field">
-      <% @reviews.each do |review| %>
+    <% @reviews.each do |review| %>
+      <div class="review-field">
+        <div class="review-user">
+          <%= show_avatar(review.user) %>
+        </div>
         <div class="review-text">
           <p><%= link_to review.beer.name, beer_path(review.beer.id) %></p>
           <%= review.user.nickname %>:<%= review.content %><span><%= link_to "詳細", review_path(review.id) %></span>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
