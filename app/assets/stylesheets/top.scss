@@ -1,3 +1,6 @@
+body{
+  background-color: rgb(248, 247, 234);
+}
 .top-wrapper{
   height: 600px;
   background-image: image-url("top_beer");
@@ -40,47 +43,101 @@
   }
 }
 
-.container{
-  margin: 50px 150px;
-  a{
-    text-decoration: none;
-    color: black;
-  }
-  h3{
+.contents-wrapper{
+  width: 1400px;
+  .contents-copy{
     font-size: 30px;
-    margin-bottom: 15px;
+    padding: 50px 0 15px 150px;
   }
-  .review-field{
-    margin-bottom: 10px;
-    border: 1px solid;
-    padding: 10px;
+  .container{
+    margin: 20px 150px;
     display: flex;
-
-    .review-header{
-      padding: 5px 15px 0 5px;
-      .user-icon{
-        border-radius: 50%;
+    .left-contents{
+      width: 350px;
+      height: 400px;
+      margin-right: 50px;
+      background-color: white;
+      text-align: center;
+      padding: 15px;
+      h4{
+        margin: 5px 0 20px 0;
+        font-size: 20px;
       }
-    }
-    .review-info{
-      .date{
-        font-size: x-small;
-        color: gray;
+      .left-text{
+        text-align: left;
       }
       p{
-        font-size: 16px;
-        padding: 5px 0;
+        line-height: 1.6;
+        padding-bottom: 10px;
       }
-      .beer-name{
-        padding: 15px 0 10px 0;
-        font-weight: bold;
-        a{
-          color: blue;
+    }
+    .right-contents{
+      width: 100%;
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      .review-field{
+        margin-bottom: 10px;
+        background-color: white;
+        padding: 25px;
+        display: flex;
+
+        .review-header{
+          padding: 5px 15px 0 15px;
+          .user-icon{
+            border-radius: 50%;
+          }
+        }
+        .review-info{
+          margin-left: 10px;
+          .date{
+            font-size: x-small;
+            color: gray;
+          }
+          p{
+            font-size: 16px;
+            padding: 5px 0;
+          }
+          .beer-name{
+            padding: 15px 0 10px 0;
+            font-weight: bold;
+            a{
+              color: blue;
+            }
+          }
+          .details{
+            margin-left: 10px;
+          }
         }
       }
-      .details{
-        margin-left: 10px;
-      }
+    }
+  }
+}
+
+.registration-container{
+  height: 400px;
+  background-image: image-url("sample");
+  background-size: cover;
+  background-position: center center;
+  .registration-main{
+    text-align: center;
+    color: white;
+    h2{
+      font-size: 50px;
+      color: white;
+      padding: 80px 0 50px 0;
+    }
+    h3{
+      font-size: 35px;
+      padding: 20px 0;
+    }
+    a{
+      display: inline-block;
+      padding: 10px;
+      text-decoration: none;
+      color: white;
+      border: white 1px solid;
     }
   }
 }

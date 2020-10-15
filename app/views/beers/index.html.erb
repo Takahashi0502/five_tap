@@ -19,27 +19,43 @@
 </div>
 
 <div class="contents-wrapper">
+  <h3 class="contents-copy">最新ビア活一覧</h3>
   <div class="container">
-    <h3>最新ビア活一覧</h3>
-    <% @reviews.each do |review| %>
-      <div class="review-field">
-        <div class="review-header">
-          <%= show_avatar(review.user) %>
-        </div>
-        <div class="review-info">
-          <p><%= link_to review.user.nickname, user_path(review.user) %></p>
-          <span class="date"><%= review.created_at.to_s(:date_jp) %></span>
-          <p class="beer-name"><%= link_to review.beer.name, beer_path(review.beer.id) %></p>
-          <%= review.content %><span class="details"><%= link_to "詳細をみる", review_path(review.id) %></span>
-        </div>
+    <div class="left-contents">
+      <h4><i class="fas fa-beer"></i>  ビア活の使い方</h4>
+      <div class="left-text">
+        <p>ビア活はクラフトビールを飲んだ記録や口コミ・感想を残すことができる機能です。</p>
+        <p>自分が飲んだビールの記録や、初めて飲んだビールの味の感想など皆さんで共有してみましょう。</p>
       </div>
-    <% end %>
+      <h4>登録されたビア活の数</h4>
+      <h4><%= @reviews.count %></h4>
+      <p>みんなでビア活を登録しよう！</p>
+      <p>検索フォームから気になるビールを探してみましょう。</p>
+    </div>
+    <div class="right-contents">
+      <% @reviews.each do |review| %>
+        <div class="review-field">
+          <div class="review-header">
+            <%= show_avatar(review.user) %>
+          </div>
+          <div class="review-info">
+            <p><%= link_to review.user.nickname, user_path(review.user) %></p>
+            <span class="date"><%= review.created_at.to_s(:date_jp) %></span>
+            <p class="beer-name"><%= link_to review.beer.name, beer_path(review.beer.id) %></p>
+            <%= review.content %><span class="details"><%= link_to "詳細をみる", review_path(review.id) %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <div class="registration-wrapper">
-  <div class="container">
-    <h3>お気に入りのビールを登録しよう</h3>
-    <p><%= link_to '登録する', new_beer_path %></p>
+  <div class="registration-container">
+    <div class="registration-main">
+      <h2>新しいビールを登録しよう</h2>
+      <h3>現在の登録ビール数  <%= @beers.count %></h3>
+      <%= link_to '登録する', new_beer_path %>
+    </div>
   </div>
 </div>
