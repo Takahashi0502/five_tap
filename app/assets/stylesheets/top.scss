@@ -41,23 +41,46 @@
 }
 
 .container{
-  margin: 50px 100px;
-
+  margin: 50px 150px;
+  a{
+    text-decoration: none;
+    color: black;
+  }
   h3{
     font-size: 30px;
     margin-bottom: 15px;
   }
-  .review-text{
+  .review-field{
     margin-bottom: 10px;
     border: 1px solid;
     padding: 10px;
+    display: flex;
 
-    p{
-      font-size: 20px;
-      margin: 5px 0;
+    .review-header{
+      padding: 5px 15px 0 5px;
+      .user-icon{
+        border-radius: 50%;
+      }
     }
-    span{
-      margin-left: 10px;
+    .review-info{
+      .date{
+        font-size: x-small;
+        color: gray;
+      }
+      p{
+        font-size: 16px;
+        padding: 5px 0;
+      }
+      .beer-name{
+        padding: 15px 0 10px 0;
+        font-weight: bold;
+        a{
+          color: blue;
+        }
+      }
+      .details{
+        margin-left: 10px;
+      }
     }
   }
 }
