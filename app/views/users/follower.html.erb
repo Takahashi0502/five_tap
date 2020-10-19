@@ -1,6 +1,18 @@
-<h2>フォロワー一覧</h2>
-<% @users.each do |u| %>
-   <p><%= link_to u.nickname, user_path(u) %></p>
-<% end %>
-
-<%= link_to "#{@user.nickname}に戻る", user_path(@user) %>
+<div class="wrapper">
+  <div class="container">
+    <div class="follow-wrapper">
+      <h2><%= @user.nickname %>のフォロー</h2>
+        <% @users.each do |u| %>
+          <div class="follows">
+            <div class="left">
+              <%= show_avatar(u) %>
+            </div>
+            <div class="right">
+              <%= link_to u.nickname, user_path(u) %>
+            </div>
+          </div>
+        <% end %>
+      <%= link_to "#{@user.nickname}に戻る", user_path(@user) %>
+    </div>
+  </div>
+</div>
