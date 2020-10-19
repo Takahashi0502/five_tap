@@ -117,38 +117,39 @@ body{
         background-color: white;
         padding: 25px;
         display: flex;
-
-        .review-header{
-          padding: 5px 15px 0 15px;
-          .user-icon{
-            border-radius: 50%;
-          }
-        }
-        .review-info{
-          margin-left: 10px;
-          .date{
-            font-size: x-small;
-            color: gray;
-          }
-          p{
-            font-size: 16px;
-            padding: 5px 0;
-          }
-          .beer-name{
-            padding: 15px 0 10px 0;
-            font-weight: bold;
-            a{
-              color: blue;
-            }
-          }
-          .details{
-            margin-left: 10px;
-          }
-        }
       }
     }
   }
 }
+
+.review-header{
+  padding: 5px 15px 0 15px;
+  .user-icon{
+    border-radius: 50%;
+  }
+}
+.review-info{
+  margin-left: 10px;
+  .date{
+    font-size: x-small;
+    color: gray;
+  }
+  p{
+    font-size: 16px;
+    padding: 5px 0;
+  }
+  .beer-name{
+    padding: 15px 0 10px 0;
+    font-weight: bold;
+    a{
+      color: blue;
+    }
+  }
+  .details{
+    margin-left: 10px;
+  }
+}
+
 
 .registration-container{
   height: 400px;
