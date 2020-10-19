@@ -1,0 +1,28 @@
+.form-wrapper{
+  max-width: 1400px;
+  min-width: 1040px;
+  margin: 20px 120px;
+  .container{
+    background-color: white;
+    .forms{
+      padding: 25px;
+      .beer-field{
+        display: flex;
+        align-items: center;
+        height: 50px;
+        margin-top: 5px;
+        .field-title{
+          width: 200px;
+          font-size: 20px;
+          margin-left: 15px;
+        }
+        .field-input{
+
+        }
+        .beer-btn{
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
