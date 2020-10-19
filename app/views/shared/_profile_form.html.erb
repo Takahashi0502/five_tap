@@ -1,19 +1,27 @@
 <div class="field">
-  <%= f.label :avatar %><br />
+  <div class="field-title">
+    <%= f.label :avatar %><br />
+  </div>
   <%= f.file_field :avatar %>
 </div>
 
 <div class="field">
-  <%= f.label :favorite_beer %><br />
+  <div class="field-title">
+    <%= f.label :favorite_beer %><br />
+  </div>
   <%= f.text_field :favorite_beer, autofocus: true, autocomplete: "favorite_beer" %>
 </div>
 
 <div class="field">
-  <%= f.label :twitter_link %><br />
+  <div class="field-title">
+    <%= f.label :twitter_link %><br />
+  </div>
   <%= f.text_field :twitter_link, autocomplete: "twitter_link" %>
 </div>
 
 <div class="field">
-  <%= f.label :info %><br />
+  <div class="field-title">
+    <%= f.label :info %><br />
+  </div>
   <%= f.text_area :info %>
 </div>

@@ -1,18 +1,23 @@
-<h2><%= "#{@search} の検索結果" %></h2>
-<% if @search == "" %>
-  <%= "1-#{@beers.count}件表示" %>
-  <% @beers.each do |beer| %>
-    <p><%= link_to beer.name, beer_path(beer.id) %></p>
-  <% end %>
-<% elsif @beers.present? %>
-  <%= "1-#{@beers.count}件表示" %>
-  <% @beers.each do |beer| %>
-    <p><%= link_to beer.name, beer_path(beer.id) %></p>
-  <% end %>
-<% else %>
-  <%= "「#{@search}」に一致するビールはありません" %>
-  <h3>お気に入りのビールを登録しよう</h3>
-  <%= link_to '登録する', new_beer_path %>
-<% end %>
-
-<%= render "shared/detail_search_form" %>
+<div class="wrapper search">
+  <div class="left container">
+    <%= render "shared/detail_search_form" %>
+  </div>
+  <div class="right container">
+    <h2><%= "#{@search} の検索結果" %></h2>
+    <% if @search == "" %>
+      <%= "1-#{@beers.count}件表示" %>
+      <% @beers.each do |beer| %>
+        <p><%= link_to beer.name, beer_path(beer.id) %></p>
+      <% end %>
+    <% elsif @beers.present? %>
+      <%= "1-#{@beers.count}件表示" %>
+      <% @beers.each do |beer| %>
+        <p><%= link_to beer.name, beer_path(beer.id) %></p>
+      <% end %>
+    <% else %>
+      <%= "「#{@search}」に一致するビールはありません" %>
+      <h3>お気に入りのビールを登録しよう</h3>
+      <%= link_to '登録する', new_beer_path %>
+    <% end %>
+  </div>
+</div>

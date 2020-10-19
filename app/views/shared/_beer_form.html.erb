@@ -1,52 +1,90 @@
-<%= form_with model: beer, local: true do |f| %>
-<%= render "shared/error_messages", model: f.object %>
+<div class="wrapper">
+  <div class="container">
+    <%= form_with model: beer, local: true do |f| %>
+      <div class="forms">
+        <%= render "shared/error_messages", model: f.object %>
+        <div class = "beer-field">
+          <div class="field-title">
+            <%= f.label :name %><br>
+          </div>
+          <div class="field-input">
+            <%= f.text_field :name %>
+          </div>
+        </div>
 
-  <div class = "beer-field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+        <div class = "beer-field">
+          <div class="field-title">
+            <%= f.label :beer_image %><br>
+          </div>
+          <div class="field-input">
+            <%= f.file_field :beer_image %>
+          </div>
+        </div>
+
+        <div class = "beer-field">
+          <div class="field-title">
+            <%= f.label :category_id %><br>
+          </div>
+          <div class="field-input">
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+          </div>
+        </div>
+
+        <div class = "beer-field">
+          <div class="field-title">
+            <%= f.label :style_id %><br>
+          </div>
+          <div class="field-input">
+            <%= f.collection_select(:style_id, Style.all, :id, :name, {}, {class:"style-select"}) %>
+          </div>
+        </div>
+
+        <div class = "beer-field">
+          <div class="field-title">
+            <%= f.label :url %><br>
+          </div>
+          <div class="field-input">
+            <%= f.text_field :url %>
+          </div>
+        </div>
+
+        <div class = "beer-field">
+          <div class="field-title">
+            <%= f.label :brewery_name %><br>
+          </div>
+          <div class="field-input">
+            <%= f.text_field :brewery_name %>
+          </div>
+        </div>
+
+        <div class = "beer-field">
+          <div class="field-title">
+            <%= f.label :brewery_country_id %><br>
+          </div>
+          <div class="field-input">
+            <%= f.collection_select(:brewery_country_id, BreweryCountry.all, :id, :name, {}, {class:"brewery-country-select"}) %>
+          </div>
+        </div>
+
+        <div class = "beer-field">
+          <div class="field-title">
+            <%= f.label :text %><br>
+          </div>
+          <div class="field-input">
+            <%= f.text_area :text %>
+          </div>
+        </div>
+
+        <div class="beer-field">
+          <div class = "beer-btn">
+          <% if request.path_info = new_beer_path %>
+            <%= f.submit "投稿する" %>
+          <% else %>
+            <%= f.submit "投稿する" %>
+          <% end %>
+          </div>
+        </div>
+      <% end %>
+      </div>
   </div>
-
-  <div class = "beer-field">
-    <%= f.label :beer_image %><br>
-    <%= f.file_field :beer_image %>
-  </div>
-
-  <div class = "beer-field">
-    <%= f.label :category_id %><br>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
-  </div>
-
-  <div class = "beer-field">
-    <%= f.label :style_id %><br>
-    <%= f.collection_select(:style_id, Style.all, :id, :name, {}, {class:"style-select"}) %>
-  </div>
-
-  <div class = "beer-field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-
-  <div class = "beer-field">
-    <%= f.label :brewery_name %><br>
-    <%= f.text_field :brewery_name %>
-  </div>
-
-  <div class = "beer-field">
-    <%= f.label :brewery_country_id %><br>
-    <%= f.collection_select(:brewery_country_id, BreweryCountry.all, :id, :name, {}, {class:"brewery-country-select"}) %>
-  </div>
-
-  <div class = "beer-field">
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </div>
-
-  <div class = "beer-btn">
-  <% if request.path_info = new_beer_path %>
-    <%= f.submit "投稿する" %>
-  <% else %>
-    <%= f.submit "投稿する" %>
-  <% end %>
-  </div>
-
-<% end %>
+</div>

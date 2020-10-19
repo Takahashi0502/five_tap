@@ -1,0 +1,90 @@
+.profiel-wrapper{
+  padding: 20px;
+  h2{
+    font-size: 25px;
+    padding: 15px 0;
+  }
+  .user{
+    display: flex;
+    padding: 20px 0;
+    border-bottom: lightgray 1px solid;
+    .user-header{
+      width: 120px;
+      display: flex;
+      justify-content: center;
+      .user-icon{
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+      }
+    }
+    .user-body{
+      width: 600px;
+      .user-status{
+        padding-bottom: 10px;
+        display: flex;
+        .status-name{
+          width: 120px;
+          padding-bottom: 3px;
+        }
+      }
+      .following{
+        margin-bottom: 10px;
+        a{
+          margin: 0 10px;
+          text-decoration: none;
+          color: blue;
+        }
+      }
+    }
+  }
+}
+.beer-wrapper{
+  padding-bottom: 15px;
+  border-bottom: lightgray 1px solid;
+  h3{
+    font-size: 18px;
+    padding: 20px 0;
+  }
+  .beer-container{
+    display: flex;
+    .beers{
+      width: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .beer-icon{
+        width: 100px;
+        height: 100px;
+      }
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
+
+.follow-wrapper{
+  padding: 20px;
+  h2{
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+  .follows{
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    .left{
+      width: 60px;
+      .user-icon{
+        border-radius: 50%;
+      }
+    }
+    a{
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+    }
+  }
+}
