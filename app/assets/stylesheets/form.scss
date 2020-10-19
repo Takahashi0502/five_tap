@@ -1,5 +1,7 @@
 .forms{
   padding: 25px;
+
+  // ビール情報登録フォームのCSS
   .beer-field{
     display: flex;
     align-items: center;
@@ -19,6 +21,21 @@
     }
     .beer-btn{
       margin: 0 auto;
+    }
+  }
+
+  // ユーザー新規登録フォームのCSS
+  .field{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin-top: 5px;
+    .field-title{
+      width: 150px;
+      font-size: 15px;
+      em{
+        font-size: 10px;
+      }
     }
   }
 }
