@@ -7,12 +7,16 @@
         <%= render "devise/shared/error_messages", resource: resource %>
       
         <div class="field">
-          <%= f.label :nickname %><br />
+          <div class="field-title">
+            <%= f.label :nickname %><br />
+          </div>
           <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname",maxlength: '40' %>
         </div>
       
         <div class="field">
-          <%= f.label :email %><br />
+          <div class="field-title">
+            <%= f.label :email %><br />
+          </div>
           <%= f.email_field :email, autocomplete: "email" %>
         </div>
       
@@ -21,16 +25,17 @@
         <% end %>
       
         <div class="field">
-          <%= f.label :password %> <i>(変更しない場合は入力不要です)</i><br />
+          <div class="field-title">
+            <%= f.label :password %>(6文字以上)<br />
+            <i>(変更しない場合は入力不要)</i><br />
+          </div>
           <%= f.password_field :password, autocomplete: "new-password" %>
-          <% if @minimum_password_length %>
-            <br />
-            <em><%= @minimum_password_length %> 文字以上で入力ください</em>
-          <% end %>
         </div>
       
         <div class="field">
-          <%= f.label :password_confirmation %><br />
+          <div class="field-title">
+            <%= f.label :password_confirmation %><br />
+          </div>
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
       

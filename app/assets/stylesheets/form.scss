@@ -41,9 +41,12 @@
     align-items: center;
     height: 40px;
     .field-title{
-      width: 150px;
+      width: 160px;
       font-size: 15px;
       em{
+        font-size: 10px;
+      }
+      i{
         font-size: 10px;
       }
     }
