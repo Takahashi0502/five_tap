@@ -1,0 +1,57 @@
+.review-wrapper{
+  padding: 10px 40px;
+  h2{
+    font-size: 20px;
+    padding: 10px 0;
+  }
+  h3{
+    font-size: 18px;
+    padding: 5px 0;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  .review{
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: lightgray 1px solid;
+  }
+  .text{
+    padding: 10px 0;
+  }
+  .tags{
+    padding: 10px 0;
+  }
+}
+
+.comment-wrapper{
+  padding: 5px 125px;
+  .comment{
+    padding: 10px 0;
+    display: flex;
+    border-bottom: lightgray 1px solid;
+    .comment-header{
+      width: 60px;
+      .user-icon{
+        border-radius: 50%;
+      }
+    }
+    .comment-body{
+      p{
+        padding: 5px 0;
+        a{
+          text-decoration: none;
+          color: black;
+        }
+      }
+      .date{
+        color: gray;
+        font-size: xx-small;
+      }
+      .text{
+        padding: 10px 0;
+      }
+    }
+  }
+}

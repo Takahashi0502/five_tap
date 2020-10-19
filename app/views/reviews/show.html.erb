@@ -1,49 +1,65 @@
-<h2><%= link_to @review.beer.name, beer_path(@review.beer) %></h2>
-<div>
-  <h3><%= link_to @review.user.nickname, user_path(@review.user) %></h3>
-  コメント：<%= @review.content %><br>
-  <% if @review.images.attached? %>
-    <% @review.images.each do |image| %>
-      <%= image_tag image.variant(resize:'150x150') %>
-    <% end %><br>
-  <% end %>
-  タグ：
-  <% @review.tags.each do |tag| %>
-    <%= tag.name %><br>
-  <% end %>
-</div>
+<div class="wrapper">
+  <div class="container">
+    <div class="review-wrapper">
+      <h2><%= link_to @review.beer.name, beer_path(@review.beer) %></h2>
+      <div class="review">
+        <div class="review-header">
+          <%= show_avatar(@review.user) %>
+        </div>
+        <div class="review-info">
+          <p><%= link_to @review.user.nickname, user_path(@review.user) %></p>
+          <span class="date"><%= @review.created_at.to_s(:date_jp) %></span>
+          <div class="text"><%= @review.content %></div>
+          <div class="tags">
+            タグ:<% @review.tags.each do |tag| %>
+                <%= tag.name %>
+              <% end %>
+          </div>
+          <% if user_signed_in? %>
+            <% if @review.liked_by?(current_user) %>
+              <span>いいね済み</span><%= link_to @review.likes.count, review_like_path(@review.id), method: :delete %>
+            <% else %>
+              <span>いいね</span><%= link_to @review.likes.count, review_like_path(@review.id), method: :post %>
+            <% end %>
+          <% end %>
+          <%= link_to 'ツイートで共有', "https://twitter.com/share?text=#{ @review.beer.name }を飲みました！&url=#{ request.url }" %>
+        </div>
+      </div>
+    </div>
 
-<% if user_signed_in? %>
-  <% if @review.liked_by?(current_user) %>
-    <p><span>いいね済み</span><%= link_to @review.likes.count, review_like_path(@review.id), method: :delete %></p>
-  <% else %>
-    <p><span>いいね</span><%= link_to @review.likes.count, review_like_path(@review.id), method: :post %></p>
-  <% end %>
-<% end %>
-<div>
-  <% @review.comments.each do |comment| %>
-    <p>
-      <%= link_to comment.user.nickname, user_path(comment.user) %>
-      <%= comment.content %>
-    </p>
-    <% if user_signed_in? %>
-      <% if comment.gooding_by?(current_user) %>
-        <p><span>いいね済み</span><%= link_to comment.goods.count, comment_good_path(comment.id), method: :delete %></p>
-      <% else %>
-        <p><span>いいね</span><%= link_to comment.goods.count, comment_good_path(comment.id), method: :post %></p>
+    <div class="comment-wrapper">
+      <% @review.comments.each do |comment| %>
+        <div class="comment">
+          <div class="comment-header">
+            <%= show_avatar(comment.user)%>
+          </div>
+          <div class="comment-body">
+            <p><%= link_to comment.user.nickname, user_path(comment.user) %></p>
+            <span class="date"><%= comment.created_at.to_s(:date_jp) %></span>
+            <div class="text"><%= comment.content %></div>
+            <div>
+              <% if user_signed_in? %>
+                <% if comment.gooding_by?(current_user) %>
+                  <p><span>いいね済み</span><%= link_to comment.goods.count, comment_good_path(comment.id), method: :delete %></p>
+                <% else %>
+                  <p><span>いいね</span><%= link_to comment.goods.count, comment_good_path(comment.id), method: :post %></p>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       <% end %>
-    <% end %>
-  <% end %>
+      <div class="comment-forms">
+        <% if user_signed_in? %>
+          <%= form_with model:@comment, url: review_comments_path(@review), local: true do |f| %>
+          <%= render "shared/error_messages", model: f.object %>
+          <%= f.label :content %>する
+          <%= f.text_field :content %>
+          <%= f.submit 'コメントする' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to 'ビール詳細に戻る', beer_path(@review.beer) %>
+  </div>
 </div>
-<% if user_signed_in? %>
-  <%= form_with model:@comment, url: review_comments_path(@review), local: true do |f| %>
-  <%= render "shared/error_messages", model: f.object %>
-    <%= f.label :content %>する
-    <%= f.text_field :content %>
-    <%= f.submit 'コメントする' %>
-  <% end %>
-<% end %>
-
-<p><%= link_to 'ツイートする', "https://twitter.com/share?text=#{ @review.beer.name }を飲みました！&url=#{ request.url }" %></p>
-
-<%= link_to 'ビール詳細に戻る', beer_path(@review.beer) %>
