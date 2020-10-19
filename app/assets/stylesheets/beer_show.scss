@@ -23,36 +23,36 @@
 }
 .main-reviews{
   padding: 20px 0 20px 40px;
-  .main-title{
-    padding: 20px;
-    font-size: 22px;
-  }
-  .review{
-    padding-bottom: 15px;
-    margin-bottom: 10px;
-    display: flex;
-    width: 100%;
-    border-bottom: 0.5px solid lightgray;
-    .left-field{
-      padding: 10px;
-      .user-icon{
-        border-radius: 50%;
-      }
+}
+.main-title{
+  padding: 20px;
+  font-size: 22px;
+}
+.review{
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  width: 100%;
+  border-bottom: 0.5px solid lightgray;
+  .left-field{
+    padding: 10px;
+    .user-icon{
+      border-radius: 50%;
     }
-    .right-field{
-      width: 80%;
-      padding: 10px;
-      .date{
-        color: gray;
-        font-size: x-small;
-      }
-      a{
-        text-decoration: none;
-        color: black;
-      }
-      .review-body{
-        padding: 20px 0;
-      }
+  }
+  .right-field{
+    width: 80%;
+    padding: 10px;
+    .date{
+      color: gray;
+      font-size: x-small;
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    }
+    .review-body{
+      padding: 20px 0;
     }
   }
 }
