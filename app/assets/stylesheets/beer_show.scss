@@ -1,64 +1,57 @@
-.mein-wrapper{
-  width: 1400px;
-  .container{
-    margin: 20px 150px;
-    background-color: white;
-    .main-beer{
-      margin: 20px;
+.main-beer{
+  margin: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  border-bottom: 1px solid;
+  .left-beer{
+    margin: 20px;
+    width: 350px;
+    .beer-name{
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+  }
+  .right-beer{
+    margin: 70px 20px 0 20px;
+    .item-info{
       padding-bottom: 20px;
-      display: flex;
-      border-bottom: 1px solid;
-      .left-beer{
-        margin: 20px;
-        width: 350px;
-        .beer-name{
-          font-size: 30px;
-          margin-bottom: 20px;
-        }
-      }
-      .right-beer{
-        margin: 70px 20px 0 20px;
-        .item-info{
-          padding-bottom: 20px;
-          span{
-            margin-right: 20px;
-          }
-        }
+      span{
+        margin-right: 20px;
       }
     }
-    .main-reviews{
-      padding: 20px 0 20px 40px;
-      .main-title{
-        padding: 20px;
-        font-size: 22px;
+  }
+}
+.main-reviews{
+  padding: 20px 0 20px 40px;
+  .main-title{
+    padding: 20px;
+    font-size: 22px;
+  }
+  .review{
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    width: 100%;
+    border-bottom: 0.5px solid lightgray;
+    .left-field{
+      padding: 10px;
+      .user-icon{
+        border-radius: 50%;
       }
-      .review{
-        padding-bottom: 15px;
-        margin-bottom: 10px;
-        display: flex;
-        width: 100%;
-        border-bottom: 0.5px solid lightgray;
-        .left-field{
-          padding: 10px;
-          .user-icon{
-            border-radius: 50%;
-          }
-        }
-        .right-field{
-          width: 80%;
-          padding: 10px;
-          .date{
-            color: gray;
-            font-size: x-small;
-          }
-          a{
-            text-decoration: none;
-            color: black;
-          }
-          .review-body{
-            padding: 20px 0;
-          }
-        }
+    }
+    .right-field{
+      width: 80%;
+      padding: 10px;
+      .date{
+        color: gray;
+        font-size: x-small;
+      }
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      .review-body{
+        padding: 20px 0;
       }
     }
   }
