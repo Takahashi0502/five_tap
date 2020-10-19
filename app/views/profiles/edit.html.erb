@@ -1,11 +1,15 @@
-<h2>プロフィール編集</h2>
-<%= form_with model: @profile, local: true do |f| %>
-<%= render "shared/error_messages", model: f.object %>
-  <%= render "shared/profile_form", f: f %>
-
-  <div class="actions">
-    <%= f.submit "更新する" %>
+<div class="wrapper">
+  <div class="container">
+    <div class="forms">
+      <%= form_with model: @profile, local: true do |f| %>
+        <h2>プロフィール編集</h2>
+        <%= render "shared/error_messages", model: f.object %>
+        <%= render "shared/profile_form", f: f %>
+        <div class="actions">
+          <%= f.submit "更新する" %>
+        </div>
+      <% end %>
+      <p><%= link_to "マイページへ戻る", user_path(@profile.user) %></p>
+    </div>
   </div>
-<% end %>
-
-<%= link_to "戻る", user_path(@profile.user) %>
+</div>
