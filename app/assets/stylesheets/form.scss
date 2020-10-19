@@ -1,8 +1,15 @@
 .forms{
-  padding: 25px;
+  padding: 15px 25px;
   h2{
     font-size: 20px;
     margin: 10px 0 25px 0;
+  }
+  h3{
+    font-size: 18px;
+    margin: 0 0 20px 0;
+  }
+  p{
+    margin-bottom: 5px;
   }
 
   // ビール情報登録フォームのCSS
@@ -33,7 +40,6 @@
     display: flex;
     align-items: center;
     height: 40px;
-    margin-top: 5px;
     .field-title{
       width: 150px;
       font-size: 15px;
@@ -41,5 +47,10 @@
         font-size: 10px;
       }
     }
+  }
+
+  .registration-main{
+    border-bottom: lightgray 1px solid;
+    padding-bottom: 5px;
   }
 }
