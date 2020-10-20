@@ -1,16 +1,19 @@
 class ReviewsController < ApplicationController
-  before_action :move_to_signin, only: [:create]
+  before_action :move_to_signin, only: [:new, :create]
   
+  def new
+    @review = ReviewTagRelation.new
+  end
+
   def create
     @review = ReviewTagRelation.new(review_params)
     @review.user_id = current_user.id
     if @review.valid?
       @review.save
-      return redirect_to beer_path(@review.beer_id)
+      return redirect_to beer_path(params[:beer_id])
     else
-      @beer = Beer.find(params[:beer_id])
-      @reviews = Review.where(beer_id: @beer.id)
-      render 'beers/show'
+      @reviews = Review.where(beer_id: params[:beer_id])
+      render 'reviews/new'
     end
   end
 
