@@ -31,8 +31,8 @@
             <p><span>お気に入り登録</span><%= link_to @beer.favorites.count, beer_favorite_path(@beer.id), method: :post %></p>
           <% end %>
         <% end %>
+        <%= link_to "ビア活を投稿", new_beer_review_path(@beer) %>
       </div>
-      <%= link_to "ビア活を投稿", new_beer_review_path(@beer) %>
     </div>
 
       <div class="main-reviews">
