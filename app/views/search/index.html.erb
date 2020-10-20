@@ -2,22 +2,35 @@
   <div class="left container">
     <%= render "shared/detail_search_form" %>
   </div>
+
   <div class="right container">
-    <h2><%= "#{@search} の検索結果" %></h2>
     <% if @search == "" %>
-      <%= "1-#{@beers.count}件表示" %>
-      <% @beers.each do |beer| %>
-        <p><%= link_to beer.name, beer_path(beer.id) %></p>
-      <% end %>
+      <h2><%= "検索する文字を入力してください" %></h2>
+      <p><%= "1-#{@beers.count}件表示" %></p>
     <% elsif @beers.present? %>
-      <%= "1-#{@beers.count}件表示" %>
-      <% @beers.each do |beer| %>
-        <p><%= link_to beer.name, beer_path(beer.id) %></p>
-      <% end %>
+      <h2><%= "[#{@search}]の検索結果" %></h2>
+      <p><%= "1-#{@beers.count}件表示" %></p>
     <% else %>
-      <%= "「#{@search}」に一致するビールはありません" %>
+      <h2><%= "[#{@search}]に一致するビールはありません" %></h2>
       <h3>お気に入りのビールを登録しよう</h3>
       <%= link_to '登録する', new_beer_path %>
     <% end %>
+    <div class="beer-cards">
+      <% @beers.each do |beer| %>
+        <%= link_to beer_path(beer.id) do %>
+          <div class="card">
+            <div class="card-left">
+              <%= show_beerimage(beer) %>
+            </div>
+            <div class="card-right">
+              <h4><%= beer.name %></h4>
+              <div class="beer-detail"><%= beer.brewery_name %></div>
+              <div class="beer-detail"><%= beer.category.name %></div>
+              <div class="beer-detail"><%= beer.style.name %></div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
