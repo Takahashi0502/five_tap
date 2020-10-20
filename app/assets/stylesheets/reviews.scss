@@ -55,3 +55,20 @@
     }
   }
 }
+
+.review-form{
+  padding: 20px;
+  h4{
+    font-size: 20px;
+    padding-bottom: 15px;
+  }
+  .review-field{
+    display: flex;
+    height: 60px;
+    margin-top: 20px;
+    margin-left: 20px;
+    .review-left{
+      width: 80px;
+    }
+  }
+}
