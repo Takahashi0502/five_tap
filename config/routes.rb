@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'beers#index'
   resources :beers do
     resource :favorite, only: [:create, :destroy]
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:new, :create]
   end
   devise_for :users, controllers: {
     registrations: 'users/registrations'

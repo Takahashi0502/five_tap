@@ -31,10 +31,9 @@
             <p><span>お気に入り登録</span><%= link_to @beer.favorites.count, beer_favorite_path(@beer.id), method: :post %></p>
           <% end %>
         <% end %>
+        <%= link_to "ビア活を投稿", new_beer_review_path(@beer) %>
       </div>
     </div>
-
-
 
       <div class="main-reviews">
         <h4 class="main-title">ビア活一覧</h4>
@@ -56,4 +55,3 @@
 
   </div>
 </div>
-<%= render "shared/review_form", review: @review, beer: @beer %>
