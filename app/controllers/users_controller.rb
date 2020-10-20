@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :move_to_signin
+
   def show
     @user = User.find(params[:id])
     @beers = @user.beers

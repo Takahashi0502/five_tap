@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
     devise_parameter_sanitizer.permit(:account_update, keys: [:nickname])
   end
+
+  private
+  def move_to_signin
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
+  end
 end

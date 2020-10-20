@@ -1,5 +1,5 @@
 class BeersController < ApplicationController
-  before_action :move_to_root, except: [:index, :show]
+  before_action :move_to_signin, except: [:index, :show]
   before_action :set_beers, only: [:show, :edit, :update, :destroy]
   def index
     @beers = Beer.all
@@ -48,9 +48,4 @@ class BeersController < ApplicationController
     @beer = Beer.find(params[:id])
   end
 
-  def move_to_root
-    unless user_signed_in?
-      redirect_to root_path
-    end
-  end
 end

@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-
+  before_action :move_to_signin, only: [:create]
+  
   def create
     @review = ReviewTagRelation.new(review_params)
     @review.user_id = current_user.id
