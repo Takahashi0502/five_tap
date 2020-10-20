@@ -16,7 +16,7 @@ class Style < ActiveHash::Base
     { id: 14, name: 'バーレイワイン' },
     { id: 15, name: 'ヴァイツェン' },
     { id: 16, name: 'ポーター' },
-    { id: 17, name: 'フランダース・エール' },
+    { id: 17, name: 'セゾン' },
     { id: 18, name: 'ヘーフェヴァイツェン' },
     { id: 19, name: 'スコッチエール' },
     { id: 20, name: 'トラピストビール' },
