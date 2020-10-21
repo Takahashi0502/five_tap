@@ -5,9 +5,6 @@
     password: "password#{i +1}",
     password_confirmation: "password#{i +1}"
   )
-end
-
-10.times do |i|
   Profile.create!(
     user_id: i + 1
   )
