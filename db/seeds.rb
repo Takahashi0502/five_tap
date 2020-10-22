@@ -6,7 +6,7 @@
     password_confirmation: "password#{i +1}"
   )
   Profile.create!(
-    user_id: i + 1
+    user_id: User.find(i + 1).id
   )
 end
 
