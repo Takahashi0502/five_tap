@@ -1,18 +1,3 @@
-10.times do |i|
-  User.create!(
-    nickname: "test#{(i + 1)}",
-    email: "test#{(i + 1)}@test.com", 
-    password: "password#{(i +1)}",
-    password_confirmation: "password#{(i +1)}"
-  )
-end
-
-10.times do |i|
-  Profile.create!(
-    user_id: User.find(i + 1).id
-  )
-end
-
 Beer.create!(
   [
     { name: "よなよなエール", category_id: 2, style_id: 9,
