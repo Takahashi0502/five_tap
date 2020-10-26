@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <% if @review.liked_by?(current_user) %>
+    <span>いいね済み</span><%= link_to @review.likes.count, review_like_path(@review.id), method: :delete, remote: true %>
+  <% else %>
+    <span>いいね</span><%= link_to @review.likes.count, review_like_path(@review.id), method: :post, remote: true %>
+  <% end %>
+<% end %>
