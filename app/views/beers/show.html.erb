@@ -4,9 +4,11 @@
       <div class="left-beer">
         <h2 class="beer-name"><%= @beer.name %></h2>
         <%= show_beerimage(@beer) %>
-        <div class="beer_likes" id="beer_likes_bottons_<%= @beer.id %>">
-          <%= render partial: 'shared/beer_like', locals: { beer: @beer } %>
-        </div>
+        <% if user_signed_in? %>
+          <div class="beer_likes" id="beer_likes_bottons_<%= @beer.id %>">
+            <%= render partial: 'shared/beer_like', locals: { beer: @beer } %>
+          </div>
+        <% end %>
       </div>
       <div class="right-beer">
         <p class="item-info"><span>カテゴリー</span><%= @beer.category.name %></p>
