@@ -4,34 +4,46 @@
       <div class="left-beer">
         <h2 class="beer-name"><%= @beer.name %></h2>
         <%= show_beerimage(@beer) %>
+        <% if user_signed_in? %>
+          <div class="beer_likes" id="beer_likes_bottons_<%= @beer.id %>">
+            <%= render partial: 'shared/beer_like', locals: { beer: @beer } %>
+          </div>
+          <div class="beer-review">
+            <%= link_to new_beer_review_path(@beer), class: "review-btn" do %>
+              <i class="fas fa-pen review-post"> ビア活を投稿</i>
+            <% end %>
+          </div>
+        <% end %>
       </div>
       <div class="right-beer">
-        <p class="item-info"><span>カテゴリー</span><%= @beer.category.name %></p>
-        <p class="item-info"><span>スタイル</span><%= @beer.style.name %></p>
-        <p class="item-info"><span>商品ページ</span><%= @beer.url %></p>
-        <p class="item-info"><span>メーカー</span><%= @beer.brewery_name %></p>
-        <p class="item-info"><span>生産国</span><%= @beer.brewery_country.name %></p>
-        <p class="item-info"><span>タグ</span>
-        <% @reviews.each do |review| %>
-          <% review.tags.each do |tag| %>
-            <%= tag.name %>
-          <% end %>
-        <% end %>
-        </p>
-        <p class="item-info"><span>コメント</span><%= @beer.text %></p>
-
-        <% if user_signed_in? %>
-          <p>
-            <%= link_to '情報を編集する', edit_beer_path(@beer) %>
-            <%= link_to '削除する', beer_path(@beer), method: :delete %>
-          </p>
-          <% if @beer.favorited_by?(current_user)%>
-            <p><span>お気に入り解除</span><%= link_to @beer.favorites.count, beer_favorite_path(@beer.id), method: :delete %></p>
-          <% else %>
-            <p><span>お気に入り登録</span><%= link_to @beer.favorites.count, beer_favorite_path(@beer.id), method: :post %></p>
-          <% end %>
-        <% end %>
-        <%= link_to "ビア活を投稿", new_beer_review_path(@beer) %>
+        <div class="beer_edit">
+            <div class="edit-bottons">
+              <% if user_signed_in? %>
+                <%= link_to '編集', edit_beer_path(@beer), class: "edit-btn" %>
+                <%= link_to '登録情報の削除', beer_path(@beer), method: :delete, class: "destroy-btn" %>
+              <% end %>
+            </div>
+        </div>
+        <div class="item-infomations">
+          <p class="item-info"><i class="fas fa-beer">カテゴリー</i><%= @beer.category.name %></p>
+          <p class="item-info"><i class="fas fa-beer">スタイル</i><%= @beer.style.name %></p>
+          <p class="item-info"><i class="fas fa-beer">商品ページ</i><%= @beer.url %></p>
+          <p class="item-info"><i class="fas fa-beer">メーカー</i><%= @beer.brewery_name %></p>
+          <p class="item-info"><i class="fas fa-beer">生産国</i><%= @beer.brewery_country.name %></p>
+          <p class="item-info"><%= @beer.text %></p>
+        </div>
+        <div class="item-tags">
+          <div class="tag-title">
+            <i class="fas fa-tags">タグ一覧</i>
+          </div>
+          <div class="tags">
+            <% @reviews.each do |review| %>
+              <% review.tags.each do |tag| %>
+                <%= tag.name %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
 
