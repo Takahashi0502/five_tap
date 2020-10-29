@@ -72,3 +72,22 @@
     }
   }
 }
+
+.like-btn .unlike-btn{
+  width: 20px;
+  height: 25px;
+  font-size: 20px;
+  margin-top: 5px;
+  color: #808080;
+  .like-count{
+    margin-left: 5px;
+  }
+}
+
+.like-btn{
+  color: #808080;
+}
+
+.unlike-btn{
+  color: #e54747;
+}
