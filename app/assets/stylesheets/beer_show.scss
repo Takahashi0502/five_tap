@@ -10,7 +10,7 @@
       font-size: 30px;
       margin-bottom: 20px;
     }
-    .beer_likes{
+    .beer_likes, .beer-review{
       margin-top: 15px;
       a{
         text-decoration: none;
@@ -31,12 +31,36 @@
         }
       }
     }
+    .beer-review{
+      text-align: center;
+      font-size: 18px;
+      .review-post{
+        background-color: black;
+        color: white;
+        padding: 5px 10px;
+      }
+    }
   }
   .right-beer{
     margin: 70px 20px 0 20px;
+    .edit-bottons{
+      text-align: right;
+      .edit-btn, .destroy-btn{
+        text-decoration: none;
+        padding: 5px;
+      }
+      .edit-btn{
+        border: black 1px solid;
+        color: black;
+      }
+      .destroy-btn{
+        color: lightgray;
+        border: lightgray 1px solid;
+      }
+    }
     .item-info{
       padding-bottom: 20px;
-      span{
+      i{
         margin-right: 20px;
       }
     }
