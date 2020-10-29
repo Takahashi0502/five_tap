@@ -4,6 +4,9 @@
       <div class="left-beer">
         <h2 class="beer-name"><%= @beer.name %></h2>
         <%= show_beerimage(@beer) %>
+        <div class="beer_likes" id="beer_likes_bottons_<%= @beer.id %>">
+          <%= render partial: 'shared/beer_like', locals: { beer: @beer } %>
+        </div>
       </div>
       <div class="right-beer">
         <p class="item-info"><span>カテゴリー</span><%= @beer.category.name %></p>
@@ -25,9 +28,6 @@
             <%= link_to '削除する', beer_path(@beer), method: :delete %>
           </p>
         <% end %>
-        <div id="beer_likes_bottons_<%= @beer.id %>">
-          <%= render partial: 'shared/beer_like', locals: { beer: @beer } %>
-        </div>
         <%= link_to "ビア活を投稿", new_beer_review_path(@beer) %>
       </div>
     </div>

@@ -10,6 +10,27 @@
       font-size: 30px;
       margin-bottom: 20px;
     }
+    .beer_likes{
+      margin-top: 15px;
+      a{
+        text-decoration: none;
+      }
+      .favorite-btn{
+        text-align: center;
+        font-size: 18px;
+        .like, .unlike{
+          padding: 5px 10px;
+        }
+        .like{
+          background-color: darkorange;
+          color: white;
+        }
+        .unlike{
+          color: darkorange;
+          border: darkorange solid 1px;
+        }
+      }
+    }
   }
   .right-beer{
     margin: 70px 20px 0 20px;
