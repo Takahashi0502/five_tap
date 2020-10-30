@@ -1,39 +1,40 @@
 .profiel-wrapper{
-  padding: 20px;
+  padding: 20px 40px;
   h2{
     font-size: 25px;
-    padding: 15px 0;
+    padding-bottom: 15px;
   }
   .user{
-    display: flex;
     padding: 20px 0;
     border-bottom: lightgray 1px solid;
     .user-header{
-      width: 120px;
       display: flex;
-      justify-content: center;
       .user-icon{
+        border: lightgray 1px solid;
         border-radius: 50%;
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
       }
-    }
-    .user-body{
-      width: 600px;
-      .user-status{
-        padding-bottom: 10px;
-        display: flex;
-        .status-name{
-          width: 120px;
-          padding-bottom: 3px;
-        }
+      .user-name{
+        margin: 10px 15px;
       }
       .following{
         margin-bottom: 10px;
         a{
-          margin: 0 10px;
           text-decoration: none;
           color: blue;
+        }
+      }
+    }
+    .user-body{
+      .user-status{
+        padding-bottom: 10px;
+        font-size: small;
+        display: flex;
+        span{
+          color: gray;
+          display: block;
+          width: 100px;
         }
       }
     }
