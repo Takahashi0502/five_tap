@@ -34,8 +34,18 @@ class User < ApplicationRecord
     result
   end
 
-  # フォローしようとするユーザーがフォロー済みかどうかを確認
+  # ユーザーをフォロー済みか確認するメソッド
   def followed_by?(user)
     passive_relationships.find_by(following_id: user.id).present?
+  end
+
+  # フォローするときのメソッド
+  def follow(user)
+    active_relationships.create!(follower_id: user.id)
+  end
+
+  # フォローを外す時のメソッド
+  def unfollow(user)
+    follower = active_relationships.find_by(follower_id: user.id).destroy
   end
 end

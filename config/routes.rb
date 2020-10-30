@@ -12,10 +12,11 @@ Rails.application.routes.draw do
     post 'profiles', to: 'users/registrations#create_profile'
   end
   resources :users, only: [:show] do
-    resources :relationships, only: [:create, :destroy]
-    get :following, on: :member
-    get :follower, on: :member
+    member do
+      get :following, :follower
+    end
   end
+  resource :relationships, only: [:create, :destroy]
   resources :profiles, only: [:edit, :update]
   resources :reviews, only: [:show] do
     resource :like, only: [:create, :destroy]

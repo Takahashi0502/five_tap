@@ -1,55 +1,57 @@
 <div class="wrapper">
   <div class="container">
-    <div class="review-wrapper">
-      <h2><%= link_to @review.beer.name, beer_path(@review.beer) %></h2>
-      <div class="review">
-        <div class="review-header">
-          <%= show_avatar(@review.user) %>
-        </div>
-        <div class="review-info">
-          <p><%= link_to @review.user.nickname, user_path(@review.user) %></p>
-          <span class="date"><%= @review.created_at.to_s(:date_jp) %></span>
-          <div class="text"><%= @review.content %></div>
-          <div class="tags">
-            タグ:<% @review.tags.each do |tag| %>
-                <%= tag.name %>
-              <% end %>
+    <div class="review-container">
+      <div class="review-wrapper">
+        <h2><%= link_to @review.beer.name, beer_path(@review.beer) %></h2>
+        <div class="review">
+          <div class="review-header">
+            <%= show_avatar(@review.user) %>
           </div>
-          <div id="likes_bottons_<%= @review.id %>">
-            <%= render partial: 'shared/like', locals: { review: @review} %>
+          <div class="review-info">
+            <p><%= link_to @review.user.nickname, user_path(@review.user) %></p>
+            <span class="date"><%= @review.created_at.to_s(:date_jp) %></span>
+            <div class="text"><%= @review.content %></div>
+            <div class="tags">
+              タグ:<% @review.tags.each do |tag| %>
+                  <%= tag.name %>
+                <% end %>
+            </div>
+            <div id="likes_bottons_<%= @review.id %>">
+              <%= render partial: 'shared/like', locals: { review: @review} %>
+            </div>
+            <%= link_to 'ツイートで共有', "https://twitter.com/share?text=#{ @review.beer.name }を飲みました！&url=#{ request.url }" %>
           </div>
-          <%= link_to 'ツイートで共有', "https://twitter.com/share?text=#{ @review.beer.name }を飲みました！&url=#{ request.url }" %>
         </div>
       </div>
-    </div>
-
-    <div class="comment-wrapper">
-      <% @review.comments.each do |comment| %>
-        <div class="comment">
-          <div class="comment-header">
-            <%= show_avatar(comment.user)%>
-          </div>
-          <div class="comment-body">
-            <p><%= link_to comment.user.nickname, user_path(comment.user) %></p>
-            <span class="date"><%= comment.created_at.to_s(:date_jp) %></span>
-            <div class="text"><%= comment.content %></div>
-            <div id="goods_bottons_<%= comment.id %>">
-              <%= render partial: 'shared/good', locals: { comment: comment} %>
+  
+      <div class="comment-wrapper">
+        <% @review.comments.each do |comment| %>
+          <div class="comment">
+            <div class="comment-header">
+              <%= show_avatar(comment.user)%>
+            </div>
+            <div class="comment-body">
+              <p><%= link_to comment.user.nickname, user_path(comment.user) %></p>
+              <span class="date"><%= comment.created_at.to_s(:date_jp) %></span>
+              <div class="text"><%= comment.content %></div>
+              <div id="goods_bottons_<%= comment.id %>">
+                <%= render partial: 'shared/good', locals: { comment: comment} %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-      <div class="comment-forms">
-        <% if user_signed_in? %>
-          <%= form_with model:@comment, url: review_comments_path(@review), local: true do |f| %>
-          <%= render "shared/error_messages", model: f.object %>
-          <%= f.label :content %>する
-          <%= f.text_field :content %>
-          <%= f.submit 'コメントする' %>
-          <% end %>
         <% end %>
+        <div class="comment-forms">
+          <% if user_signed_in? %>
+            <%= form_with model:@comment, url: review_comments_path(@review), local: true do |f| %>
+            <%= render "shared/error_messages", model: f.object %>
+            <%= f.label :content %>する
+            <%= f.text_field :content %>
+            <%= f.submit 'コメントする' %>
+            <% end %>
+          <% end %>
+        </div>
+        <%= link_to 'ビール詳細に戻る', beer_path(@review.beer) %>
       </div>
     </div>
-    <%= link_to 'ビール詳細に戻る', beer_path(@review.beer) %>
   </div>
 </div>
