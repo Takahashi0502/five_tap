@@ -1,5 +1,6 @@
 .profiel-wrapper{
   padding: 20px 40px;
+  position: relative;
   h2{
     font-size: 25px;
     padding-bottom: 15px;
@@ -9,6 +10,7 @@
     border-bottom: lightgray 1px solid;
     .user-header{
       display: flex;
+      margin-bottom: 10px;
       .user-icon{
         border: lightgray 1px solid;
         border-radius: 50%;
@@ -35,6 +37,33 @@
           color: gray;
           display: block;
           width: 100px;
+        }
+      }
+      .followed, .following{
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        width: 100px;
+        margin-top: 5px;
+        padding: 5px;
+        border-radius: 12px;
+      }
+      .followed{
+        background-color: darkorange;
+        color: white;
+      }
+      .following{
+        border: darkorange 1px solid;
+        color: darkorange;
+      }
+      .option{
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        text-align: right;
+        a{
+          text-decoration: none;
+          color: gray;
         }
       }
     }
