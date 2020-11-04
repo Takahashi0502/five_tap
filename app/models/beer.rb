@@ -9,7 +9,7 @@ class Beer < ApplicationRecord
   belongs_to_active_hash :style
   belongs_to_active_hash :brewery_country
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :url, format: { with: /\A#{URI::regexp(%w(http https))}\z/ , message: "はURL形式で入力してください" }, allow_blank: true
 
   def favorited_by?(user)
