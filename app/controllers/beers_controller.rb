@@ -3,7 +3,7 @@ class BeersController < ApplicationController
   before_action :set_beers, only: [:show, :edit, :update, :destroy]
   def index
     @beers = Beer.all
-    @reviews = Review.order(id: "DESC").includes(:beer, :user)
+    @reviews = Review.order(id: "DESC").includes(:beer, :user).limit(5)
   end
 
   def new
