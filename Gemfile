@@ -63,7 +63,8 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'active_hash'
 gem 'ransack'
+gem 'dotenv-rails'
 
 group :production do
-  gem 'rails_12factor'
+  gem 'unicorn'
 end
