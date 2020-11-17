@@ -42,6 +42,9 @@ ID(メールアドレス)：test1@test.com
 ## DB設計
 ![five_tap](https://user-images.githubusercontent.com/69100896/95412943-1f83a480-0965-11eb-8724-bacf2f2f799d.png)
 
+## インフラ構成図
+![fivetap構成図](https://user-images.githubusercontent.com/69100896/99389564-945ddd00-291a-11eb-8cb1-a46be13302eb.png)
+
 ## ローカルでの動作方法
 <使用パッケージやバージョン情報>
 * rbenv
